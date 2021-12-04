@@ -15,9 +15,11 @@ if (!empty($_POST["login"]) && !empty($_POST["password"])) {
     if ($value["login"] == $login) {
       $user = $login;
     }
-    if ($value["password"] == $password) {
-      header("Location: profile.php");
-      die();
+    if ($user === $login) {
+      if ($value["password"] == $password) {
+        header("Location: profile.php");
+        die();
+      }
     }
   }
   $_SESSION["ERROR"] = "";
